@@ -1,0 +1,62 @@
+.main_hero_iphone15 {
+  height: 70vh;
+  background-image: url("../assets/heros/iphone15/hero_iphone15pro__i70z9oz3hj2i_small_2x.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.second_hero_iphone15 {
+  height: 70vh;
+  background-image: url("../assets/heros/iphone15/hero_iphone15_announce__uuemlcwczn6u_small_2x.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.second_hero_watch {
+  height: 70vh;
+  background-image: url("../assets/heros/watch/hero_startframe__dbi4flqyio2u_small_2x.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.second_hero_macbookpro {
+  height: 70vh;
+  background-image: url("../assets/heros/macbookpro/promo_mbp__ek7p477bkp6q_small_2x.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.second_hero_ipad {
+  height: 70vh;
+  background-image: url("../assets/heros/ipad/promo_ipad__fioegapg12qi_small_2x.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.second_hero_airpods {
+  height: 70vh;
+  background-image: url("../assets/heros/ipod/promo_airpods_pro_order__d8xv36p4uwae_small_2x.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.second_hero_homepod_mini {
+  height: 70vh;
+  background-image: url("../assets/heros/homepodmini/tile_homepod_mini__b73w4z3ljymu_small_2x.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.second_hero_macbookairm2 {
+  height: 70vh;
+  background-image: url("../assets/heros/macbookair/promo_macbookair__fywl7i82fueu_small_2x.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.second_hero_tradein {
+  height: 70vh;
+  background-image: url("../assets/heros/iphonetradein/promo_iphone_tradein__bugw15ka691e_small_2x.jpg");
+  background-position: center;
+  background-size: cover;
+}
