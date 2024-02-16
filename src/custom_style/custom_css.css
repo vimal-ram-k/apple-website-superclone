@@ -60,3 +60,11 @@
   background-position: center;
   background-size: cover;
 }
+
+.footer_expand_ul {
+  display: block;
+}
+
+.footer_list {
+  list-style: none;
+}

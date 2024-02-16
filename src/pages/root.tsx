@@ -1,16 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import Notificationsection from "../components/notificationsection";
 import watch_series9 from "../assets/heros/watch/hero_logo_apple_watch_series_9__eg5xcrxghuaa_small_2x.png";
 import m2_ship_icon from "../assets/heros/macbookair/logo_promo_macbookair__hy9ktdqqtv2a_small_2x.png";
 import tradein from "../assets/heros/iphonetradein/logo_tradein__d1fpktgipvki_small_2x.png";
 import killerofmoon from "../assets/heros/apple-tv-flex/548x1186 (1).jpg";
+import down_arrow from "../assets/icons/arrow-down-3101.svg";
 import { Link } from "react-router-dom";
+
+const footer_links = [
+  "Shop and Learn",
+  "Apple Wallet",
+  "Account",
+  "Entertainment",
+  "Apple Store",
+  "For Bussiness",
+  "For Education",
+  "For Healthcare",
+  "Apple Values",
+  " About Apple",
+];
+
+const shopandlearn = [
+  "Store",
+  "Mac",
+  "iPad",
+  "iPhone",
+  "Watch",
+  "AirPods",
+  "TV & Home",
+  "AirTag",
+  "Accessories",
+  "Gift Cards",
+];
+
 function Root() {
   return (
     <div>
       <Notificationsection />
       <section className="main_hero_iphone15">
-        <h1 className=" text-white text-center fs-1 pt-5">iPhone 25 pro</h1>
+        <h1 className=" text-white text-center fs-1 pt-5">iPhone 15 pro</h1>
         <h3 className=" text-white fw-lighter text-center fs-5">
           Titanium. So strong. So light. So Pro.
         </h3>
@@ -233,9 +261,131 @@ function Root() {
         </ul>
       </div>
 
-      
+      <footer>
+        <div>
+          <ul className=" container-fluid">
+            {footer_links.map((items, _index) => {
+              return (
+                <div
+                  className="d-flex justify-content-between border-bottom "
+                  id={items}
+                  onClick={footerLinkExpand}
+                >
+                  <li
+                    className=" list-unstyled fw-light  p-2 "
+                    style={{ fontSize: "0.8rem" }}
+                    id={items + "_"}
+                    key={_index}
+                  >
+                    {items}
+                  </li>
+                  <div className="" style={{ height: "20px" }}>
+                    <img
+                      id={`${items}` + "arrow"}
+                      src={down_arrow}
+                      width={10}
+                      alt=""
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </ul>
+          <div className=" container">
+            <p className="fw-light m-0" style={{ fontSize: "0.7rem" }}>
+              More ways to shop: <Link to={"/"}>Find an Apple Store</Link> or{" "}
+              <Link to={"/"}>other retailer</Link> near you.
+            </p>
+            <p className="fw-light m-0" style={{ fontSize: "0.7rem" }}>
+              Or call 000800 040 1966.
+            </p>
+
+            <h1 className=" fw-light mt-3" style={{ fontSize: "0.8rem" }}>
+              India
+            </h1>
+            <h1 className=" fw-lighter " style={{ fontSize: "0.7rem" }}>
+              Copyright @ 2024 Apple Inc. All rights reseved.
+            </h1>
+
+            <ul className=" d-flex p-0 m-0 column-gap-2 mb-3">
+              <li
+                className=" list-unstyled fw-light pe-2"
+                style={{ fontSize: "0.7rem", borderRight: "1px solid gray" }}
+              >
+                Privacy Policy
+              </li>
+              <li
+                className=" list-unstyled fw-light pe-2"
+                style={{ fontSize: "0.7rem", borderRight: "1px solid gray" }}
+              >
+                Terms of Use
+              </li>
+
+              <li
+                className=" list-unstyled fw-light pe-2"
+                style={{ fontSize: "0.7rem", borderRight: "1px solid gray" }}
+              >
+                Sales policy
+              </li>
+
+              <li
+                className=" list-unstyled fw-light pe-2"
+                style={{ fontSize: "0.7rem", borderRight: "1px solid gray" }}
+              >
+                Legal
+              </li>
+
+              <li
+                className=" list-unstyled fw-light pe-2"
+                style={{ fontSize: "0.7rem" }}
+              >
+                Site Map
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
 
 export default Root;
+
+function footerLinkExpand(id: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+  const listExpand = document.getElementById(`${id.currentTarget.id}` + "_");
+  const ulTtems = document.createElement("ul");
+  const arrow = document.getElementById(`${id.currentTarget.id}` + "arrow");
+  let listItem;
+  let LinkAdd;
+  if (!listExpand?.classList.contains("active")) {
+    listExpand?.classList.add("active");
+
+    if (arrow) {
+      arrow.style.transform = "rotate(180deg)";
+    }
+
+    ulTtems.classList.add("footer_expand_ul");
+
+    {
+      shopandlearn.map((items) => {
+        listItem = document.createElement("li");
+        LinkAdd = document.createElement("a");
+        listItem.classList.add("footer_list");
+        LinkAdd.textContent = items;
+        LinkAdd.href = `/${items}`;
+        listItem.appendChild(LinkAdd);
+        ulTtems.appendChild(listItem);
+        listExpand?.appendChild(ulTtems);
+      });
+    }
+  } else {
+    listExpand?.classList.remove("active");
+    console.log("DOne");
+    if (ulTtems) {
+      listExpand.removeChild(ulTtems);
+    }
+    if (arrow) {
+      arrow.style.transform = "rotate(0deg)"; // Reset rotation
+    }
+  }
+}
