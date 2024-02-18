@@ -1,11 +1,19 @@
-import React, { useState } from "react";
 import Notificationsection from "../components/notificationsection";
 import watch_series9 from "../assets/heros/watch/hero_logo_apple_watch_series_9__eg5xcrxghuaa_small_2x.png";
 import m2_ship_icon from "../assets/heros/macbookair/logo_promo_macbookair__hy9ktdqqtv2a_small_2x.png";
 import tradein from "../assets/heros/iphonetradein/logo_tradein__d1fpktgipvki_small_2x.png";
-import killerofmoon from "../assets/heros/apple-tv-flex/548x1186 (1).jpg";
+
+import appletv1 from "../assets/heros/apple-tv-flex/548x1186.jpg";
+import appletv3 from "../assets/heros/apple-tv-flex/548x1186 (1).jpg";
+import appletv2 from "../assets/heros/apple-tv-flex/548x1186 (2).jpg";
+import appletv4 from "../assets/heros/apple-tv-flex/548x1186 (3).jpg";
+import appletv5 from "../assets/heros/apple-tv-flex/548x1186 (4).jpg";
+import appletv6 from "../assets/heros/apple-tv-flex/548x1186 (5).jpg";
+import appletv7 from "../assets/heros/apple-tv-flex/548x1186 (6).jpg";
+
 import down_arrow from "../assets/icons/arrow-down-3101.svg";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const footer_links = [
   "Shop and Learn",
@@ -33,9 +41,35 @@ const shopandlearn = [
   "Gift Cards",
 ];
 
+setInterval(() => {
+  const appletv_flex = document.getElementById("appletv-flex");
+  let currentLeft = appletv_flex?.scrollLeft;
+
+  if (currentLeft !== undefined && appletv_flex) {
+    if (currentLeft > 1500) {
+      currentLeft = 230;
+    }
+    appletv_flex.scrollTo({
+      left: currentLeft + 280,
+      behavior: "smooth",
+    });
+  }
+}, 4000);
+
 function Root() {
+  useEffect(() => {
+    const appletv_flex = document.getElementById("appletv-flex");
+    const currentLeft = appletv_flex?.scrollLeft;
+    if (currentLeft !== undefined && appletv_flex) {
+      appletv_flex.scrollTo({
+        left: currentLeft + 230,
+        behavior: "smooth",
+      });
+    }
+  }, []);
+
   return (
-    <div>
+    <div className="">
       <Notificationsection />
       <section className="main_hero_iphone15">
         <h1 className=" text-white text-center fs-1 pt-5">iPhone 15 pro</h1>
@@ -93,114 +127,165 @@ function Root() {
       </section>
 
       {/* Macbook Pro second banner  */}
+      <div className=" d-lg-grid">
+        <div className=" row m-0">
+          <section className="second_hero_macbookpro my-2 col-lg-6 ">
+            <h1 className=" text-center pt-4 m-0">MacBook Pro</h1>
+            <p className=" text-black text-center fs-4  fw-light m-1">
+              Mind-blowing. Head-turning.
+            </p>
+            <div className=" d-flex column-gap-3 justify-content-center">
+              <Link to={"/"} className=" text-decoration-none fw-light fs-6 ">
+                Learn more
+              </Link>
+              <Link to={"/"} className=" text-decoration-none fw-light fs-6">
+                Buy
+              </Link>
+            </div>
+          </section>
 
-      <section className="second_hero_macbookpro my-2 ">
-        <h1 className=" text-center pt-4 m-0">MacBook Pro</h1>
-        <p className=" text-black text-center fs-4  fw-light m-1">
-          Mind-blowing. Head-turning.
-        </p>
-        <div className=" d-flex column-gap-3 justify-content-center">
-          <Link to={"/"} className=" text-decoration-none fw-light fs-6 ">
-            Learn more
-          </Link>
-          <Link to={"/"} className=" text-decoration-none fw-light fs-6">
-            Buy
-          </Link>
+          {/*  iPad second banner  */}
+          <section className="second_hero_ipad my-2  col-lg-6 ">
+            <h1 className=" text-center pt-5">iPad</h1>
+            <p className=" text-black text-center fs-4  fw-light m-1">
+              Lovable. Drawable. Magical.
+            </p>
+            <div className=" d-flex column-gap-3 justify-content-center">
+              <Link to={"/"} className=" text-decoration-none fw-light fs-6 ">
+                Learn more
+              </Link>
+              <Link to={"/"} className=" text-decoration-none fw-light fs-6">
+                Buy
+              </Link>
+            </div>
+          </section>
         </div>
-      </section>
 
-      {/*  iPad second banner  */}
-      <section className="second_hero_ipad my-2 ">
-        <h1 className=" text-center pt-5">iPad</h1>
-        <p className=" text-black text-center fs-4  fw-light m-1">
-          Lovable. Drawable. Magical.
-        </p>
-        <div className=" d-flex column-gap-3 justify-content-center">
-          <Link to={"/"} className=" text-decoration-none fw-light fs-6 ">
-            Learn more
-          </Link>
-          <Link to={"/"} className=" text-decoration-none fw-light fs-6">
-            Buy
-          </Link>
+        {/*  Airpods second banner  */}
+        <div className="row m-0">
+          <section className="second_hero_airpods my-2 col-lg-6  ">
+            <h1 className=" text-white text-center pt-5">AirPods Pro</h1>
+            <p className=" text-white text-center fs-4  fw-light m-1">
+              Adaptive Audio. Now playing.
+            </p>
+            <div className=" d-flex column-gap-3 justify-content-center">
+              <Link to={"/"} className=" text-decoration-none fw-light fs-6 ">
+                Learn more
+              </Link>
+              <Link to={"/"} className=" text-decoration-none fw-light fs-6">
+                Buy
+              </Link>
+            </div>
+          </section>
+
+          {/*  homepodmini second banner  */}
+          <section className="second_hero_homepod_mini my-2 col-lg-6 ">
+            <h1 className=" text-black fs-1 text-center pt-5">HomePod mini</h1>
+
+            <div className=" d-flex column-gap-3 justify-content-center">
+              <Link to={"/"} className=" text-decoration-none fw-light fs-6 ">
+                Learn more
+              </Link>
+              <Link to={"/"} className=" text-decoration-none fw-light fs-6">
+                Buy
+              </Link>
+            </div>
+          </section>
         </div>
-      </section>
 
-      {/*  Airpods second banner  */}
-      <section className="second_hero_airpods my-2 ">
-        <h1 className=" text-white text-center pt-5">AirPods Pro</h1>
-        <p className=" text-white text-center fs-4  fw-light m-1">
-          Adaptive Audio. Now playing.
-        </p>
-        <div className=" d-flex column-gap-3 justify-content-center">
-          <Link to={"/"} className=" text-decoration-none fw-light fs-6 ">
-            Learn more
-          </Link>
-          <Link to={"/"} className=" text-decoration-none fw-light fs-6">
-            Buy
-          </Link>
+        {/*  macbookairm2 second banner  */}
+        <div className="row m-0">
+          <section className="second_hero_macbookairm2 my-2  d-flex flex-column align-items-center col-lg-6 ">
+            <h1 className=" text-black fs-1 text-center pt-5">MacBook Air</h1>
+            <img src={m2_ship_icon} width={180} alt="" />
+            <div className=" d-flex column-gap-3 justify-content-center">
+              <Link to={"/"} className=" text-decoration-none fw-light fs-6 ">
+                Learn more
+              </Link>
+              <Link to={"/"} className=" text-decoration-none fw-light fs-6">
+                Buy
+              </Link>
+            </div>
+          </section>
+
+          {/*  tradein second banner  */}
+          <section className="second_hero_tradein my-2  d-flex flex-column align-items-center row-gap-2 col-lg-6 ">
+            <img src={tradein} width={120} alt="" className=" pt-5" />
+            <p className=" m-0 fs-5">upgrade and save. It;s that easy.</p>
+            <div className=" d-flex column-gap-3 justify-content-center">
+              <Link to={"/"} className=" text-decoration-none fw-light fs-6 ">
+                See what your device is worth
+              </Link>
+            </div>
+          </section>
         </div>
-      </section>
-
-      {/*  homepodmini second banner  */}
-      <section className="second_hero_homepod_mini my-2 ">
-        <h1 className=" text-black fs-1 text-center pt-5">HomePod mini</h1>
-
-        <div className=" d-flex column-gap-3 justify-content-center">
-          <Link to={"/"} className=" text-decoration-none fw-light fs-6 ">
-            Learn more
-          </Link>
-          <Link to={"/"} className=" text-decoration-none fw-light fs-6">
-            Buy
-          </Link>
-        </div>
-      </section>
-
-      {/*  macbookairm2 second banner  */}
-      <section className="second_hero_macbookairm2 my-2  d-flex flex-column align-items-center">
-        <h1 className=" text-black fs-1 text-center pt-5">MacBook Air</h1>
-        <img src={m2_ship_icon} width={180} alt="" />
-        <div className=" d-flex column-gap-3 justify-content-center">
-          <Link to={"/"} className=" text-decoration-none fw-light fs-6 ">
-            Learn more
-          </Link>
-          <Link to={"/"} className=" text-decoration-none fw-light fs-6">
-            Buy
-          </Link>
-        </div>
-      </section>
-
-      {/*  tradein second banner  */}
-      <section className="second_hero_tradein my-2  d-flex flex-column align-items-center row-gap-2">
-        <img src={tradein} width={120} alt="" className=" pt-5" />
-        <p className=" m-0 fs-5">upgrade and save. It;s that easy.</p>
-        <div className=" d-flex column-gap-3 justify-content-center">
-          <Link to={"/"} className=" text-decoration-none fw-light fs-6 ">
-            See what your device is worth
-          </Link>
-        </div>
-      </section>
-
+      </div>
       {/*  apple tv shows second banner  */}
       <div>
-        <ul className=" d-flex overflow-scroll">
-          <li className=" list-unstyled p-2">
-            <img src={killerofmoon} width={280} height={500} alt="" />
+        <ul className=" d-flex overflow-scroll" id="appletv-flex">
+          <li key={"appletv1"} className=" list-unstyled p-2">
+            <img
+              srcSet=""
+              src={appletv1}
+              className="appletv-flex"
+              width={260}
+              height={500}
+              alt=""
+            />
           </li>
-          <li className=" list-unstyled p-2">
-            <img src={killerofmoon} width={280} height={500} alt="" />
+          <li key={"appletv2"} className=" list-unstyled p-2">
+            <img
+              src={appletv2}
+              className="appletv-flex"
+              width={260}
+              height={500}
+              alt=""
+            />
           </li>
-          <li className=" list-unstyled p-2">
-            <img src={killerofmoon} width={280} height={500} alt="" />
+          <li key={"appletv3"} className=" list-unstyled p-2">
+            <img
+              src={appletv3}
+              className="appletv-flex"
+              width={260}
+              height={500}
+              alt=""
+            />
           </li>
-          <li className=" list-unstyled p-2">
-            <img src={killerofmoon} width={280} height={500} alt="" />
+          <li key={"appletv4"} className=" list-unstyled p-2">
+            <img
+              src={appletv4}
+              className="appletv-flex"
+              width={260}
+              height={500}
+              alt=""
+            />
           </li>
-
-          <li className=" list-unstyled p-2">
-            <img src={killerofmoon} width={280} height={500} alt="" />
+          <li key={"appletv5"} className=" list-unstyled p-2">
+            <img
+              src={appletv5}
+              className="appletv-flex"
+              width={260}
+              height={500}
+              alt=""
+            />
           </li>
-          <li className=" list-unstyled p-2">
-            <img src={killerofmoon} width={280} height={500} alt="" />
+          <li key={"appletv6"} className=" list-unstyled p-2">
+            <img
+              src={appletv6}
+              className="appletv-flex"
+              width={260}
+              height={500}
+              alt=""
+            />
+          </li>
+          <li key={"appletv7"} className=" list-unstyled p-2">
+            <img
+              src={appletv7}
+              className="appletv-flex"
+              width={260}
+              height={500}
+              alt=""
+            />
           </li>
         </ul>
       </div>

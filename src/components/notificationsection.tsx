@@ -1,9 +1,8 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const Notificationsection = () => {
   return (
-    <div className=" bg-danger-subtle" style={{ height: "auto" }}>
+    <div className=" bg-dark-subtle" style={{ height: "auto" }}>
       <p
         className=" container text-center my-0 p-2"
         style={{ width: "90%", fontSize: "0.7rem" }}
